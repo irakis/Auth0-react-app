@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bulma/css/bulma.css';
+import { useContext } from 'react';
+import { Auth0Context } from './contexts/auth0-context';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import 'bulma/css/bulma.css'; 
 
+function App() { 
+  const auth0 = useContext(Auth0Context);
+  return ( 
+    <div className="hero is-info is-mobile"> 
+      <div className="hero-body is-multiline"> 
+        <div className="level has-text-centered column is-narrow"> Click Below! 
+        </div>
+        <div className="level has-text-centered column is-narrow">
+          <button onClick={auth0.loginWithRedirect} className="button is-danger"> Login </button>
+        </div>
+      </div> 
+    </div> 
+  ); 
+} 
+    
 export default App;
